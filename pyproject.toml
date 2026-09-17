@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["dllm"]
+
+[project]
+name = "dllm"
+version = "0.1.0"
+description = "dLLM: Simple Diffusion Language Modeling"
+readme = "README.md"
+requires-python = ">=3.10"
+# Common dependencies. Pick an environment with:
+#   uv sync --extra lladadream   (LLaDA / Dream: transformers 4.57)
+#   uv sync --extra diffugemma   (DiffuGemma: transformers 5.x)
+dependencies = [
+    "accelerate==1.11.0",
+    "deepspeed==0.18.0",
+    "datasets==4.2.0",
+    "sentencepiece==0.2.0",
+    "torchmetrics",
+    "tyro",
+    "wandb",
+    "omegaconf",
+    "tqdm",
+    "matplotlib",
+    "pytest",
+    "rich",
+    "lm-eval>=0.4.11",
+    "seaborn>=0.13.2",
+    "python-levenshtein>=0.27.3",
+    "plotly>=6.7.0",
+    "hdbscan>=0.8.42",
+    "umap-learn>=0.5.12",
+    "faiss-cpu>=1.13.2",
+    "lightgbm>=4.6.0",
+    "xgboost>=3.2.0",
+    "openai>=2.32.0",
+]
+
+[project.optional-dependencies]
+lladadream = [
+    "transformers==4.57.0",
+    "peft==0.17.1",
+]
+diffugemma = [
+    "transformers>=5.11.0",
+    "torchvision",
+    "peft>=0.20.0",
+    "tiktoken>=0.12.0",
+    "diffusers>=0.39.0",
+]
+optional = [
+    "bitsandbytes==0.48.1",
+    "vllm==0.8.5.post1",
+    "flash-attn==2.8.3",
+]
+
+[tool.uv]
+conflicts = [
+    [
+        { extra = "lladadream" },
+        { extra = "diffugemma" },
+    ],
+]
+
+[tool.black]
+line-length = 88
+exclude = '''
+(
+    (^|/)dllm/pipelines/llada/models(/|$)|
+    (^|/)dllm/pipelines/llada2/models(/|$)|
+    (^|/)dllm/pipelines/dream/models(/|$)|
+    (^|/)dllm/pipelines/a2d/models(/|$)|
+    (^|/)lm-evaluation-harness(/|$)
+)
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["scripts/tests"]
+python_files = ["test_*.py"]
+addopts = "-v -ra"
