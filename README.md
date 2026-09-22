@@ -166,3 +166,11 @@ drifty/
 ```
 
 Result files (`*.pt`, `*.json`, `*.csv`, `*.png`, `*.html`…) are ignored by git.
+
+## Licenses
+
+Our code and code modifications are released under MIT license.
+
+The `dllm` library we use for inference was released under the Apache-2.0 license.
+You may find the original source code and a copy of its license at: [https://github.com/ZHZisZZ/dllm](https://github.com/ZHZisZZ/dllm).
+
