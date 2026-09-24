@@ -167,10 +167,12 @@ drifty/
 
 Result files (`*.pt`, `*.json`, `*.csv`, `*.png`, `*.html`…) are ignored by git.
 
-## Licenses
+## Licenses and related repos
 
 Our code and code modifications are released under MIT license.
 
 The `dllm` library we use for inference was released under the Apache-2.0 license.
 You may find the original source code and a copy of its license at: [https://github.com/ZHZisZZ/dllm](https://github.com/ZHZisZZ/dllm).
+
+The TraceDet implementation, released under the MIT license, is taken from its original repo: [https://github.com/chang-sx/TraceDet/](https://github.com/chang-sx/TraceDet/).
 
