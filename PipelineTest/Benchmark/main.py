@@ -70,6 +70,14 @@ BASELINE_REGISTRY = {
         "func": "run_config",
         "needs_gpu": True,
     },
+    # Entraine un petit Transformer : tourne in-process, sur GPU si le job en a un
+    # (q -G 1), sinon sur CPU.
+    "tracedet": {
+        "display": "TraceDet",
+        "module": "PipelineTest.Benchmark.tracedet",
+        "func": "run_config",
+        "needs_gpu": False,
+    },
 }
 
 
@@ -160,6 +168,7 @@ SAMPLE_VALUE_COLUMNS = {
     "lexical_similarity": ["lexical_similarity", "rouge_l_max_f1", "rouge_l_mean_f1",
                            "rouge_l_max_prec", "rouge_l_max_rec", "rouge_l_var"],
     "baseline_markov": ["baseline", "markov", "baseline_markov"],
+    "tracedet": ["tracedet"],
 }
 
 
