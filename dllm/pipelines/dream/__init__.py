@@ -3,8 +3,6 @@ from .models.configuration_dream import DreamConfig
 from .models.modeling_dream import DreamModel
 from .models.tokenization_dream import DreamTokenizer
 from .sampler import DreamSampler, DreamSamplerConfig, DreamSamplerWithCompleteHistory
-from .trainer import DreamTrainer
-from . import utils
 
 __all__ = [
     "DreamConfig",
@@ -13,6 +11,5 @@ __all__ = [
     "DreamSampler",
     "DreamSamplerConfig",
     "DreamSamplerWithCompleteHistory",
-    "DreamTrainer",
     "utils",
 ]
